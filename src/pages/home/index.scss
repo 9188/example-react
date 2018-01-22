@@ -1,0 +1,28 @@
+.home {
+  .space_carousel {
+    padding: 16px;
+    background: #DEF1E5;
+  }
+  
+  .sub_title {
+    color: #888;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 50px;
+      height: 26px;
+    }
+    .my_carousel {
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      padding-left: 20px;
+      .v-item {
+        height: 60px;
+        line-height: 60px;
+      }
+    }
+  }
+}
