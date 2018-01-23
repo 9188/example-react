@@ -54,7 +54,6 @@ export default class Home extends React.Component {
           <div className="v-item">没看过你</div>
         </Carousel>
       </div>
-        
       </div>
     );
   }

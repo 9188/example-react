@@ -3,5 +3,16 @@
   "plugins": [
       ["transform-runtime", { "polyfill": false }],
       ["import", [{ "style": true, "libraryName": "antd-mobile" }]]
-  ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [["react-transform", {
+        "transforms": [{
+          "transform": "react-transform-hmr",
+          "imports": ["react"],
+          "locals": ["module"]
+        }]
+      }]]
+    }
+  }
 }

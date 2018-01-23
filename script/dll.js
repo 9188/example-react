@@ -8,6 +8,7 @@ module.exports = {
       'react', 
       'react-dom',
       'react-router-dom',
+      'dva'
     ]
   },
   output: {

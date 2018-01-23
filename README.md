@@ -27,8 +27,8 @@ npm run lint
 
 ## 配置
 
-该项目是基于 9188cli<br >
-9188cli 会根据项目根目录 `.9188`文件配进行构建，如需修改配置请查看[文档](http://vvo.io/cli/configuration)
+该项目是基于 caiyi-cli<br >
+caiyi-cli 会根据项目根目录 `.caiyi`文件配进行构建，如需修改配置请查看[文档](http://vvo.io/cli/configuration)
 
 ## 报告bug
 

@@ -39,7 +39,7 @@ const config = {
         ],
         loader: require.resolve('url-loader'),
         options: {
-          limit: 10000,
+          limit: 5000,
           name: 'static/[name].[hash:8].[ext]',
         },
       },
@@ -126,11 +126,6 @@ const config = {
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('../dll/caiyi-react-manifest.json'),
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
     }),
     new ExtractTextPlugin({
       filename: `[name].[contenthash:7].css`,

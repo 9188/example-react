@@ -9,9 +9,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const os = require('os');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+
 
 const config = {
-  // devtool: 'cheap-module-source-map'
+  devtool: 'cheap-module-source',
   entry: {
     app: path.resolve(__dirname, '../src/index.js'),
     vendor: [
@@ -33,24 +35,30 @@ const config = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      minimize: true,
-      compress: {warnings: false},
-      output: {comments: false},
+    new ImageminPlugin({
+      disable: false, 
+      pngquant: {
+        quality: '95-100'
+      }
     }),
-    // new UglifyJsPlugin({
-    //   uglifyOptions: {
-    //     ie8: false,
-    //     ecma: 8,
-    //     mangle: true,
-    //     output: { comments: false },
-    //     compress: { warnings: false }
-    //   },
-    //   sourceMap: false,
-    //   cache: true,
-    //   parallel: os.cpus().length * 2
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    //   minimize: true,
+    //   compress: {warnings: false},
+    //   output: {comments: false},
     // }),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ie8: false,
+        ecma: 8,
+        mangle: true,
+        output: { comments: false },
+        compress: { warnings: false }
+      },
+      sourceMap: false,
+      cache: true,
+      parallel: os.cpus().length * 2
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: '[name].[chunkhash:7].js',
@@ -63,7 +71,7 @@ const config = {
     //   minRatio: 0
     // }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),//解释是启用作用域提升，使代码变小
+    new webpack.optimize.ModuleConcatenationPlugin(),//作用域提升，使代码变小
     new ManifestPlugin({
       fileName: 'manifest.json',
     }),
@@ -94,7 +102,7 @@ const config = {
     tls: 'empty',
     child_process: 'empty'
   },
-  // performance: { hints: false }
+  performance: { hints: false }
 }
 
 module.exports = Merge(CommonConfig, config)
