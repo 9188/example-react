@@ -10,7 +10,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const os = require('os');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
+process.env.BABEL_ENV = 'production'
 
 const config = {
   devtool: 'cheap-module-source',
@@ -87,6 +89,7 @@ const config = {
       },
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),//忽略模块 不打包
+    new LodashModuleReplacementPlugin,
     // new CopyWebpackPlugin([
     //   {
     //     from: path.resolve(process.cwd(), 'public'),

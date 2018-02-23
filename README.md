@@ -33,3 +33,4 @@ caiyi-cli 会根据项目根目录 `.caiyi`文件配进行构建，如需修改�
 ## 报告bug
 
 [issues](http://gitlab.gs.9188.com/caiyi.html5.public/h5-react/issues)
+

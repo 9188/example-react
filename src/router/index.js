@@ -1,7 +1,6 @@
 import React from 'react'
 import { Router, Route, Switch } from 'dva/router';
 import dynamic from 'dva/dynamic';
-import cloneDeep from 'lodash/cloneDeep';
 
 import nav from './nav'
 
