@@ -6,7 +6,7 @@ import styles from './index.scss'
 
 export default class Home extends React.Component {
   state = {
-    data: [ '20160607030534209.jpg', '20090122145454_98994_9RDR.gif', '001P1kCfzy78jbkaHWT3f&690.gif'],
+    data: [ '20160607030534209.jpg', '20090122145454_98994_9RDR.gif'],
     imgHeight: 300,
   }
   componentDidMount() {
