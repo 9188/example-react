@@ -50,7 +50,7 @@ const config = {
     historyApiFallback: true,//不跳转 
     inline: true, //切换 iframe inline 刷新机制
     host: "localhost",
-    port: 8082,
+    port: 8083,
     open:true,
     noInfo: true, //除了error 其他的提示都不用
     hot:true,//使用热加载插件 HotModuleReplacementPlugin
